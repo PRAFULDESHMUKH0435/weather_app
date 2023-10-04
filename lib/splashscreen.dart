@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Container(
               height: 250,
-              child: Lottie.asset('assets/Animations/anim_1.json'),
+              child: Lottie.asset('assets/Animations/anim_2.json'),
             ),
             Text('Weather App',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color:Colors.white),)
           ],
