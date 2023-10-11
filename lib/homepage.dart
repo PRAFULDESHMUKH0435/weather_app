@@ -30,6 +30,8 @@ class _HomePageState extends State<HomePage> {
         mydata=res.body ;
         print(res.body);
         print(mydata);
+        final snack = SnackBar(content: Text('DATA LOADED SUCCESSFULLY'));
+        ScaffoldMessenger.of(context).showSnackBar(snack);
       }else{
         print('FAILED');
       }
@@ -78,7 +80,14 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Icon(Icons.place,size: 25,color: Colors.white,),
                               SizedBox(width: 10,),
-                              TextButton(onPressed: (){}, child: Text('Nagpur',style: TextStyle(fontSize: 25,color: Colors.white),))
+                              TextButton(onPressed: (){
+                                showDialog(context: context,
+                                    builder: (context){
+                                      return Center(child: CircularProgressIndicator(
+                                        strokeWidth: 4.0,
+                                      ));
+                                });
+                              }, child: Text('Nagpur',style: TextStyle(fontSize: 25,color: Colors.white),))
                             ],
                           ) ,
                         ),
