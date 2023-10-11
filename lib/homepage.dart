@@ -10,6 +10,7 @@ class HomePage extends StatefulWidget{
 }
 
 class _HomePageState extends State<HomePage> {
+  var _citycontroller = TextEditingController();
 
   String mydata ="";
   ///INIT STATE
@@ -82,10 +83,14 @@ class _HomePageState extends State<HomePage> {
                               SizedBox(width: 10,),
                               TextButton(onPressed: (){
                                 showDialog(context: context,
+                                    barrierDismissible: false,
                                     builder: (context){
-                                      return Center(child: CircularProgressIndicator(
-                                        strokeWidth: 4.0,
-                                      ));
+                                      return Column(
+                                        children: [
+                                           Text('Enter City'),
+
+                                        ],
+                                      );
                                 });
                               }, child: Text('Nagpur',style: TextStyle(fontSize: 25,color: Colors.white),))
                             ],
