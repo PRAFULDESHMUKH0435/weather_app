@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'homepage2.dart';
 import 'package:weather_app/splashscreen.dart';
 
 import 'homepage.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue
       ),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: HomePage2(),
     );
   }
 }

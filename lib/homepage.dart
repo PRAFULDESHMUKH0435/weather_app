@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/location.dart';
 import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget{
@@ -13,31 +12,35 @@ class _HomePageState extends State<HomePage> {
   var _citycontroller = TextEditingController();
 
   String mydata ="";
+  String City ="NAGPUR";
   ///INIT STATE
   @override
   void initState() {
     print('INIT STATE CALLED');
     ///LOCATION CODE
     super.initState();
-    data();
+    double l1 = 51.5072;
+    double l2 = -0.118092;
+    data(l1,l2);
+    print('INITSTATE CALLED');
   }
 
-  void data() async{
+  void data(double val1,double val2) async{
     try{
-      String url =  'https://api.openweathermap.org/data/2.5/weather?lat=51.509865&lon=-0.118092&appid=07d4477491773726822cdb84da69ebd6';
+      String url =  'https://api.openweathermap.org/data/2.5/weather?lat=$val1&lon=$val2&appid=07d4477491773726822cdb84da69ebd6';
       Uri uri = Uri.parse(url);
       http.Response res =  await http.get(uri);
       if(res.statusCode==200){
         mydata=res.body ;
         print(res.body);
         print(mydata);
-        final snack = SnackBar(content: Text('DATA LOADED SUCCESSFULLY'));
+        final snack = SnackBar(content: Text('WEATHER OF $City LOADED SUCCESSFULLY'));
         ScaffoldMessenger.of(context).showSnackBar(snack);
       }else{
-        print('FAILED');
+        print('FAILED1');
       }
     }catch(e){
-      print('FAILED');
+      print('FAILED2');
     }
   }
 
@@ -82,16 +85,24 @@ class _HomePageState extends State<HomePage> {
                               Icon(Icons.place,size: 25,color: Colors.white,),
                               SizedBox(width: 10,),
                               TextButton(onPressed: (){
-                                showDialog(context: context,
+                                  final name =  showDialog(
                                     barrierDismissible: false,
+                                    context: context,
                                     builder: (context){
-                                      return Column(
-                                        children: [
-                                           Text('Enter City'),
-
-                                        ],
-                                      );
-                                });
+                                       return AlertDialog(
+                                         title: Text('Enter City'),
+                                         content: TextField(
+                                            decoration: InputDecoration(
+                                              hintText: 'Enter City Here...'
+                                            ),
+                                           controller: _citycontroller,
+                                         ),
+                                         actions: [
+                                           TextButton(onPressed: (){
+                                           }, child: Text('Submit'))
+                                         ],
+                                       );
+                                    });
                               }, child: Text('Nagpur',style: TextStyle(fontSize: 25,color: Colors.white),))
                             ],
                           ) ,
