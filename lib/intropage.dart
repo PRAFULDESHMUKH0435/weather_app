@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import 'IntroPages/page1.dart';
 import 'IntroPages/page2.dart';
 import 'IntroPages/page3.dart';

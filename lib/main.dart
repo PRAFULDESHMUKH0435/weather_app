@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'homepage2.dart';
-import 'package:weather_app/splashscreen.dart';
-
 import 'homepage.dart';
 void main(){
   runApp(MyApp());
@@ -14,10 +11,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue
+        primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: HomePage2(),
+      home: HomePage(),
     );
   }
 }
