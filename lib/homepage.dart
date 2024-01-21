@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/topcontainer.dart';
 import 'bottomcontainer.dart';
 import 'helper.dart';
+import 'location.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -12,9 +13,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  MyLocation location = MyLocation();
 
   @override
   Widget build(BuildContext context) {
+    print("Location Is :${location.result}");
     return WillPopScope(
       onWillPop:()=> OnbackPressed(context),
       child: Scaffold(

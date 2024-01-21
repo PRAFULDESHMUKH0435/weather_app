@@ -1,5 +1,5 @@
 import 'package:geolocator/geolocator.dart';
-class Location{
+class MyLocation{
 
   double mylatitude=0.0;
   double mylongitude=0.0;
@@ -17,7 +17,7 @@ class Location{
       print('ERROR : $e');
       result=e.toString();
     }
-
+    print(result);
   }
 
 }
